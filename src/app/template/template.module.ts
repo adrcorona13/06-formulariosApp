@@ -6,6 +6,9 @@ import { BasicosComponent } from './components/basicos/basicos.component';
 import { DinamicosComponent } from './components/dinamicos/dinamicos.component';
 import { SwitchesComponent } from './components/switches/switches.component';
 import { CommonModule } from '@angular/common';
+import { CustomMinDirective } from "../directives/custom-min.directive";
+
+
 
 @NgModule({
     imports: [
@@ -16,7 +19,8 @@ import { CommonModule } from '@angular/common';
     declarations: [
       BasicosComponent,
       DinamicosComponent,
-      SwitchesComponent
+      SwitchesComponent,
+      CustomMinDirective
     ]
 })
 export class TemplateModule { }

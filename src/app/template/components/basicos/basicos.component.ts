@@ -17,4 +17,10 @@ export class BasicosComponent {
     return this.formulario?.controls?.['producto']?.invalid 
             && this.formulario?.controls?.['producto']?.touched
   }
+
+  precioValido():boolean{   
+    //this.formulario?.controls?.['precio']?.setErrors({precio: null})
+    return this.formulario?.controls?.['precio']?.touched  
+      && this.formulario?.controls?.['precio']?.value < 0 ;
+  }
 }

@@ -9,8 +9,18 @@ export class BasicosComponent {
 
   @ViewChild('formulario') formulario!: NgForm;
 
+  initForm = {
+    producto: 'RTX 4080ti',
+    precio: 0,
+    existencias: 10
+  }
+
   guardar(  ){
-    console.log("entro", this.formulario.value);
+    console.log("guardado");
+    this.formulario.resetForm({
+      precio: 0,
+      existencias: 0
+    });
   }
 
   nombreValido():boolean{

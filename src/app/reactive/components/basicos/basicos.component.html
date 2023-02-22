@@ -2,14 +2,15 @@
 <hr>
 <div class="row">
     <div class="col">
-        <form autocomplete="off">
+        <form autocomplete="off" [formGroup]="formulario">
             <!--Campo de producto-->
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-9">
                     <input  type="text" 
                             class="form-control" 
-                            placeholder="Nombre del producto">
+                            placeholder="Nombre del producto"
+                            formControlName="nombre">
                             
                     <span class="form-text text-danger">
                         Debe de ser de 3 letras</span>
@@ -21,7 +22,8 @@
                 <div class="col-sm-9">
                     <input  type="number" 
                             class="form-control" 
-                            placeholder="Precio del producto">
+                            placeholder="Precio del producto"
+                            formControlName="precio">
                     <span class="form-text text-danger">
                     El precio debe ser mayor o igual a cero</span>
                 </div>
@@ -33,7 +35,8 @@
                 <div class="col-sm-9">
                     <input  type="number" 
                             class="form-control" 
-                            placeholder="Existencias producto">
+                            placeholder="Existencias producto"
+                            formControlName="existencias">
                 </div>
             </div>
             <div class="row">
@@ -49,7 +52,7 @@
 </div>
 
 
-<!-- <div class="row">
+<div class="row">
     <div class="col">
         <span>Valid</span>
         <pre>{{formulario.valid}}</pre>
@@ -59,7 +62,5 @@
         <pre>{{formulario.touched}}</pre>
         <span>Value</span>
         <pre>{{formulario.value | json}}</pre>
-        <span>CustomDirective</span>
-        <pre>{{formulario?.controls?.['existencias']?.errors | json}}</pre>
     </div>
-</div> -->
+</div>

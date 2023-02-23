@@ -2,7 +2,7 @@
 <hr>
 <div class="row">
     <div class="col">
-        <form autocomplete="off" [formGroup]="formulario">
+        <form autocomplete="off" [formGroup]="formulario" (ngSubmit)="guardar()">
             <!--Campo de producto-->
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Producto</label>
@@ -48,8 +48,7 @@
                 <div class="col">
                     <button 
                         type="submit" 
-                        class="btn btn-primary float-end"
-                        [disabled]="formulario.invalid">
+                        class="btn btn-primary float-end">
                         Guardar</button>
                 </div>
             </div>

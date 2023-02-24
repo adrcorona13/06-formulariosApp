@@ -13,7 +13,11 @@ export class RegistroComponent implements OnInit {
     formulario: FormGroup = this.fb.group({
         nombre: ['', [Validators.required, Validators.pattern(this.validatorService.regexNombreApellido)]],
         email: ['', [Validators.required, Validators.pattern(this.validatorService.regexEmail)]],
-        username: ['', [Validators.required, this.validatorService.noPuedeSerStrider]]
+        username: ['', [Validators.required, this.validatorService.noPuedeSerStrider]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        passwordConfirmacion: ['', [Validators.required]]
+    }, {
+        validators: [ this.validatorService.camposIguales('password', 'passwordConfirmacion') ]
     })
 
     constructor(

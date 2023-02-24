@@ -40,6 +40,21 @@ export class RegistroComponent implements OnInit {
             && this.formulario.controls[campo].invalid;
     }
 
+    emailRequerido(){
+        return this.formulario.get('email')?.errors?.['required']
+            && this.formulario.get('email')?.touched;
+    }
+
+    emailFormato(){
+        return this.formulario.get('email')?.errors?.['pattern']
+            && this.formulario.get('email')?.touched;
+    }
+
+    emailEnUso(){
+        return this.formulario.get('email')?.errors?.['emailTomado']
+            && this.formulario.get('email')?.touched;
+    }
+
     crear(){
         console.log(this.formulario.value);
         this.formulario.markAllAsTouched();

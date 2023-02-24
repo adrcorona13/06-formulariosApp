@@ -23,8 +23,16 @@
                     <input type="email" class="form-control" placeholder="Email del usuario"
                         formControlName="email">
                     <span class="text-danger"
-                        *ngIf="validarCampo('email')">
+                        *ngIf="emailRequerido()">
                         El correo es obligatorio
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="emailFormato()">
+                        El valor ingresado no es un correo válido
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="emailEnUso()">
+                        El email ya existe
                     </span>
                 </div>
             </div>

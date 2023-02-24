@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // import { regexNombreApellido, regexEmail, noPuedeSerStrider } from '../../../shared/validators/validaciones';
 import { ValidatorService } from '../../../shared/services/validator.service';
+import { EmailValidatorService } from '../../../shared/services/emailValidator.service';
 
 @Component({
     selector: 'app-registro',
@@ -12,7 +13,7 @@ export class RegistroComponent implements OnInit {
 
     formulario: FormGroup = this.fb.group({
         nombre: ['', [Validators.required, Validators.pattern(this.validatorService.regexNombreApellido)]],
-        email: ['', [Validators.required, Validators.pattern(this.validatorService.regexEmail)]],
+        email: ['', [Validators.required, Validators.pattern(this.validatorService.regexEmail)], [this.ev]],
         username: ['', [Validators.required, this.validatorService.noPuedeSerStrider]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         passwordConfirmacion: ['', [Validators.required]]
@@ -22,13 +23,14 @@ export class RegistroComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder, 
-        private validatorService: ValidatorService
+        private validatorService: ValidatorService,
+        private ev: EmailValidatorService
     ){}
 
     ngOnInit(): void {
         this.formulario.reset({
             nombre: 'Adrian Pineda',
-            email: 'adrian@gmail.com',
+            email: 'test1@test.com',
             username: 'adrcorona13'
         })
     }
